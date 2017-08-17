@@ -1,14 +1,14 @@
 require 'faker'
 
 #make users
-100.times do
-  User.new(username: Faker::RickAndMorty.character, email: Faker::Internet.safe_email, password_hash: Faker::Internet.password)
+10.times do
+  User.create!(username: Faker::GameOfThrones.character, email: Faker::Internet.safe_email, password: Faker::Internet.password)
 end
 
 #make questions, each associated with a random user
 20.times do
   author = User.all.shuffle.first
-  Question.new(title: Faker::Hipster.sentence, explanation: Faker::Hipster.pararaph, author_id: author.id)
+  Question.create!(title: Faker::Hipster.sentence, explanation: Faker::Hipster.paragraph, author_id: author.id)
 end
 
 
@@ -18,12 +18,22 @@ questions = Question.all
 #make comments to question
 questions.each do |question|
   5.times do
-    Comment.new(content: Faker::RickAndMorty.quote, author_id: question.author.id, commentable_id: question.id)
+    Comment.create!(content: Faker::RickAndMorty.quote, author_id: question.author.id, commentable_id: question.id, commentable_type: "Question")
   end
 
 #make answers to question
   3.times do
     author = User.all.shuffle.first
-    Answer.new(content: Faker::Hipster.pararaph, question_id: question.id, author_id: author.id)
+    Answer.create!(content: Faker::Hipster.paragraph, question_id: question.id, author_id: author.id)
+  end
+end
+
+answers = Answer.all
+
+# comments on answers
+
+answers.each do |answer|
+  5.times do
+    Comment.create!(content: Faker::RickAndMorty.quote, author_id: answer.author.id, commentable_id: answer.id, commentable_type: "Answer")
   end
 end
