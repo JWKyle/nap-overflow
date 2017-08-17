@@ -10,10 +10,12 @@ end
 
 #'users/user_id/questions' ?
 post '/questions' do
+  #authenticate!
+  p params[:question]
   @question = Question.new(params[:question])
 
   if @question.save
-    redirect #'/somewhere', RESTular suggested the questions index page
+    redirect '/questions'
   else
     #'/users/user_id/questions/new'?
     erb :'questions/new'

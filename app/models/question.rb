@@ -3,6 +3,7 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_one :best_answer, foreign_key: :best_answer_id, class_name: :Answer
 
+
   has_many :votes, as: :voteable
   has_many :comments, as: :commentable
 
