@@ -8,7 +8,7 @@ post '/questions' do
   @question = Question.new(params[:question])
 
   if @question.save
-    redirect #'/somewhere'
+    redirect #'/somewhere', RESTular suggested the questions index page
   else
     #'/users/user_id/questions/new'?
     erb :'questions/new'
