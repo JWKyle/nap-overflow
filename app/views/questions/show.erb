@@ -1,0 +1,25 @@
+<h6>See a Question</h6>
+
+<div class="question">
+  <h2>Question:</h2>
+  <h2><%= @question.title %></h2>
+  <h2><%= @question.explanation %></h2>
+
+  <ul><% @question.comments.each do |comment| %>
+
+    <li><%= comment.content %><br>
+    <%= comment.author.username%></li><br><br>
+  <% end %></ul>
+</div>
+
+<br>
+<div class="answer">
+  <h2>Answers:</h2>
+  <% @question.answers.each do |answer| %>
+    <h3><%= answer.content %></h3><br>
+    <ul><% answer.comments.each do |comment| %>
+      <li><%= comment.content%><br>
+      <%= comment.author.username%></li><br><br>
+    <% end %></ul>
+  <% end %>
+</div>
