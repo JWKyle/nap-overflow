@@ -1,0 +1,6 @@
+<div class="answer form">
+  <form action='/questions/<%= @question.id %>/answers' method="post">
+    <textarea name="answer[content]" placeholder="Answer"></textarea><br>
+    <input type="submit" value="Answer Question">
+  </form>
+</div>

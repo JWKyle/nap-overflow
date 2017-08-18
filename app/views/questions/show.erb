@@ -4,22 +4,28 @@
   <h2>Question:</h2>
   <h2><%= @question.title %></h2>
   <h2><%= @question.explanation %></h2>
-
   <ul><% @question.comments.each do |comment| %>
-
     <li><%= comment.content %><br>
     <%= comment.author.username%></li><br><br>
   <% end %></ul>
+  <%= erb :'questions/_comment' %><br>
 </div>
 
+<!-- do we need this both here and in answers/new.erb? -->
 <br>
+<br>
+
 <div class="answer">
   <h2>Answers:</h2>
+  <%= erb :'/answers/_answerform' %>
   <% @question.answers.each do |answer| %>
     <h3><%= answer.content %></h3><br>
     <ul><% answer.comments.each do |comment| %>
       <li><%= comment.content%><br>
-      <%= comment.author.username%></li><br><br>
+      <%= comment.author.username%></li><br>
+
+      <%= erb :'answers/_comment', locals: {answer: answer} %><br>
+
     <% end %></ul>
   <% end %>
 </div>
