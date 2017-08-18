@@ -4,10 +4,8 @@ get '/questions/:question_id/answers/new' do
 end
 
 post '/questions/:question_id/answers' do
-  p params
   answer_text = params[:answer]
   question_number = params[:question_id]
-  p question_number
   @question = Question.find(params[:question_id])
   @answer = @question.answers.new(content: answer_text[:content], author_id: session[:user_id], question_id: question_number)
 
