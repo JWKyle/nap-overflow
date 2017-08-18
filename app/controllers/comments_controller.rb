@@ -5,7 +5,8 @@ post '/answers/:answer_id/comments' do
   if @comment.save
     redirect "/answers/#{@answer.id}"
   else
-    erb :'/answers/_comment'
+    status 422
+#    erb :'/answers/_comment'
   end
 end
 
