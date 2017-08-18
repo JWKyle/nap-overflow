@@ -4,7 +4,7 @@ $(document).ready(function() {
 
    // var upvoteListener = function(){
 
-  var voteListener = function(){ $(".question-container").on("click", ".upvote", function(){
+  var voteListener = function(){ $(".questions-container").on("click", ".upvote", function(){
     event.preventDefault();
 
     var $upvote_button = $(this);
@@ -18,6 +18,7 @@ $(document).ready(function() {
 
     request.done(function(response){
       console.log(response);
+      $upvote_button.closest(".questions-container").find("p.votes").html()
 
     })
 

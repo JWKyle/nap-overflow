@@ -1,7 +1,7 @@
 
 
+<div class="questions-container">
 <% @questions.each do |question| %>
-<div class="question-container">
   <div class="upvote">
   <form method="post" action='/questions/<%= question.id %>/vote' class="inline">
       <button type="submit" name="submit_param" value="submit_value" class="fa fa-sort-desc vote-button upvote-button"></button>
@@ -10,7 +10,7 @@
 
     <h2><a href="/questions/<%= question.id %>"><%= question.title %></a></h2>
     <p><%= question.explanation %></p>
-    <p><%= question.votes.length %></p>
+    <p class="votes"><%= question.votes.length %></p>
 
   <div class="downvote">
     <form method="post" action='/questions/<%= question.id %>/vote' class="inline">
