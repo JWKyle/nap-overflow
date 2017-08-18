@@ -20,6 +20,17 @@
   <%= erb :'/answers/_answerform' %>
   <% @question.answers.each do |answer| %>
     <h3><%= answer.content %></h3><br>
+
+    <!-- best answer logic -->
+    <% if logged_in? && current_user.id == @question.author_id %>
+      <form action="/questions/<%= @question.id %>" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <input type="hidden" name="selected_answer" value="<%= answer.author.id %>">
+        <!-- sending answer's id to the controller?  -->
+        <input type="submit" value="Best Answer!">
+      </form>
+    <% end %>
+
     <ul><% answer.comments.each do |comment| %>
       <li><%= comment.content%><br>
       <%= comment.author.username%></li><br>
