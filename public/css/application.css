@@ -17,8 +17,12 @@ body {
   /* font-family: 'Fresca', sans-serif; */
 }
 
+.center {
+  margin: 0 auto;
+}
+
 .errors {
-  color: red;
+  color: gold;
 }
 
 h1 {
@@ -46,6 +50,10 @@ h1 {
 
 #site-header a:visited {
   color: #c0bebc;
+}
+
+.site {
+  float: right;
 }
 
 nav {
