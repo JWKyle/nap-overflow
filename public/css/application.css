@@ -93,3 +93,26 @@ nav li a {
 nav li a:hover {
   text-decoration: underline;
 }
+
+/*  background-color: transparent;*/
+/*.upvote-button {
+  border: none;
+  padding-top: 5px;
+  color: #8C8C8C;
+  vertical-align: sub;
+  padding: 1px 0px 0px 0px;
+}
+*/
+
+/*.inline {
+  display: inline;
+}
+*/
+
+/*article a.vote-button {
+  color: #8C8C8C;
+  text-decoration: none;
+  display: inline;
+  vertical-align: sub;
+}*/
+
