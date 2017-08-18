@@ -1,11 +1,51 @@
+html {
+  border: solid 4px #331456;
+}
+
+a {
+  color: #c0bebc;
+}
+
 body {
   padding-top: 1%;
   padding-left: 4%;
   padding-right: 4%;
+  background-color: #9078ad;
+  color: #331456;
+  font-size: 1em;
+  font-family: 'Henny Penny', cursive;
+  /* font-family: 'Fresca', sans-serif; */
 }
 
 .errors {
   color: red;
+}
+
+h1 {
+  color: #1d053a
+}
+
+#header-wrap {
+  background-image: url("http://www.cwssoft.com/wp-content/uploads/2010/10/SleepyTimePromo.png");
+  background-size: 1200px 500px;
+  background-repeat: no-repeat;
+  text-decoration: none;
+}
+
+#site-header {
+  text-decoration: none;
+  color: #c0bebc;
+  text-align: center;
+  font-size: 4em;
+}
+
+#site-header a{
+  text-decoration: none;
+  color: #c0bebc;
+}
+
+#site-header a:visited {
+  color: #c0bebc;
 }
 
 nav {
@@ -13,13 +53,14 @@ nav {
   height: 40px;
   font-weight: bold;
   float: right;
+  color: #4d2c73;
 }
 
 nav .brand, nav .brand a {
   margin-left: 25px;
   font-size: 18pt;
   text-decoration: none;
-  color: #444;
+  color: #4d2c73;
   width: 60%;
   display: inline-block;
 }
@@ -36,8 +77,9 @@ nav li {
 }
 
 nav li a {
-  color: gray;
+  color: #1d053a;
   text-decoration: none;
+  text-align: right;
 }
 
 nav li a:hover {
