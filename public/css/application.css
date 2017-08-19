@@ -13,8 +13,14 @@ body {
   background-color: #9078ad;
   color: #331456;
   font-size: 1em;
-  font-family: 'Henny Penny', cursive;
+  font-family: 'Asap', sans-serif;
   /* font-family: 'Fresca', sans-serif; */
+}
+
+.best-answer {
+  color: gold;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .center {
@@ -41,6 +47,7 @@ h1 {
   color: #c0bebc;
   text-align: center;
   font-size: 4em;
+  font-family: 'Henny Penny', cursive;
 }
 
 #site-header a{
@@ -85,9 +92,10 @@ nav li {
 }
 
 nav li a {
-  color: #1d053a;
+  color: #c0bebc;
   text-decoration: none;
   text-align: right;
+  font-family: 'Henny Penny', cursive;
 }
 
 nav li a:hover {

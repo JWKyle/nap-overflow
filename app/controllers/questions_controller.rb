@@ -31,3 +31,15 @@ get '/questions/:id' do
   @question = Question.find(params[:id])
   erb :'questions/show'
 end
+
+put '/questions/:id' do
+  authenticate!
+  @question = Question.find(params[:id])
+  if @question
+    @question.best_answer_id = params[:selected_answer]
+    @question.save
+    redirect "/questions/#{@question.id}"
+  else
+    # redirect to some error page
+  end
+end

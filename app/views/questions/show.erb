@@ -8,18 +8,32 @@
     <li><%= comment.content %><br>
     <%= comment.author.username%></li><br><br>
   <% end %></ul>
-  <%= erb :'questions/_comment' %><br>
+  <%= erb :'questions/_comment' %><br><br>
 </div>
 
 <!-- do we need this both here and in answers/new.erb? -->
-<br>
-<br>
 
 <div class="answer">
   <h2>Answers:</h2>
-  <%= erb :'/answers/_answerform' %>
+  <%= erb :'/answers/_answerform' %><br><br><br><br>
   <% @question.answers.each do |answer| %>
-    <h3><%= answer.content %></h3><br>
+    <br><br><h3><%= answer.content %></h3><br>
+    <% if @question.best_answer_id == answer.id %>
+      <h3 class="best-answer">~Selected best answer~</h3>
+    <% end %>
+
+    <!-- best answer logic -->
+    <% if logged_in? && current_user.id == @question.author_id %>
+      <% if @question.best_answer_id.nil? %>
+        <form action="/questions/<%= @question.id %>" method="POST">
+          <input type="hidden" name="_method" value="PUT">
+          <input type="hidden" name="selected_answer" value="<%= answer.id %>">
+          <!-- sending answer's id to the controller?  -->
+          <input type="submit" value="Best Answer!">
+        </form>
+      <% end %>
+    <% end %>
+
     <ul><% answer.comments.each do |comment| %>
       <li><%= comment.content%><br>
       <%= comment.author.username%></li><br>
@@ -27,6 +41,6 @@
       <form action="/answers/<%= answer.id %>/comments" method="post">
         <textarea name="comment[content]" placeholder="Comment"></textarea><br>
         <input type="submit" value="Comment">
-      </form>
+      </form><br><br><br>
   <% end %>
 </div>
