@@ -1,14 +1,12 @@
 post '/questions/:id/vote' do
   question = Question.find(params[:id])
-  question.votes.create(value: 1)
+
+  question.votes.create(value: 1, voter_id: session[:user_id])
 
   if request.xhr?
-    return question.votes.to_s
+    erb :'questions/_question_upvote', layout: false, locals: {question: question}
+    # return question.votes.length.to_s
   else
-    redirect "/questions"
+   redirect "/questions"
   end
 end
-
-
-    # content-type :json
-    # { votes: question.votes }.to_json
