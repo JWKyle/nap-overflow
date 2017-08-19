@@ -37,6 +37,8 @@ put '/questions/:id' do
   if @question
     @question.best_answer_id = params[:selected_answer]
     @question.save
-    redirect '/'
+    redirect "/questions/#{@question.id}"
+  else
+    # redirect to some error page
   end
 end
