@@ -2,14 +2,17 @@ $(document).ready(function() {
   voteListener();
 });
 
-   // var upvoteListener = function(){
-
-  var voteListener = function(){ $(".questions-container").on("click", ".upvote", function(){
+  var voteListener = function(){
+    $(".upvote_form").on("click", function(){
     event.preventDefault();
 
     var $upvote_button = $(this);
     var $url = $(this).attr("action");
     var $method = $(this).attr("method");
+
+     var $upvote = $(this).parents();
+
+     var $points = $($upvote).next().next().next();
 
     var request = $.ajax({
       url: $url,
@@ -17,9 +20,7 @@ $(document).ready(function() {
     })
 
     request.done(function(response){
-      console.log(response);
-      $upvote_button.closest(".questions-container").find("p.votes").html()
-
+      $points.html(response);
     })
 
     request.fail(function(response){
